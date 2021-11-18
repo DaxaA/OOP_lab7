@@ -37,8 +37,8 @@ public class Main {
     public static void complicatedThreads() {
         Task task = new Task(count);
         MySemaphore mySemaphore = new MySemaphore();
-        Generator generator = new Generator(task, mySemaphore);
-        Integrator integrator = new Integrator(task, mySemaphore);
+        Thread generator = new Generator(task, mySemaphore);
+        Thread integrator = new Integrator(task, mySemaphore);
         generator.start();
         integrator.start();
         try {
